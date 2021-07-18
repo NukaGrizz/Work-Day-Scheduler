@@ -20,12 +20,6 @@ var getTime = function() {
     weekDay = dayjs().day();
     hour = dayjs().get('hour');
     addDate();
-    console.log('check');
-    console.log(month);
-    console.log(date);
-    console.log(day);
-    console.log(weekDay);
-    console.log(hour);
 };
 
 var addDate = function() {
