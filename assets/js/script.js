@@ -1,4 +1,3 @@
-var year = "";
 var month = "";
 var date = "";
 var hour = "";
@@ -15,18 +14,23 @@ var threePmBlock = document.getElementById('3pm-input');
 var fourPmBlock = document.getElementById('4pm-input');
 var fivePmBlock = document.getElementById('5pm-input');
 
-
 var getTime = function() {
-    year = dayjs().get('year');
     month = dayjs().get('month');
     date = dayjs().date();
     weekDay = dayjs().day();
     hour = dayjs().get('hour');
     addDate();
+    console.log('check');
+    console.log(month);
+    console.log(date);
+    console.log(day);
+    console.log(weekDay);
+    console.log(hour);
 };
 
 var addDate = function() {
     var currentDate = document.getElementById('currentDay');
+    currentDate.textContent = "";
 
     switch (weekDay) {
         case 0:
@@ -90,9 +94,6 @@ var addDate = function() {
             monthText = "December";
             break;
     }
-
-    console.log(monthText);
-    console.log(day);
     currentDate.textContent = day + ", " + monthText + " " + date;
     schedulerHourColor();
 };
@@ -302,3 +303,4 @@ document.getElementById("saveBtn9").addEventListener("click", saveInput);
 
 loadSaved();
 getTime();
+setInterval(getTime, 1000);
