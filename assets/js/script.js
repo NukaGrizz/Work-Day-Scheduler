@@ -268,9 +268,21 @@ var schedulerHourColor = function() {
             fourPmBlock.classList.add("past");
             fivePmBlock.classList.add("past");
             break;
-
     }
-
 };
+
+var saveInput = function(){
+    console.log('saveclick');
+};
+
+document.getElementById("saveBtn1").addEventListener("click", saveInput);
+document.getElementById("saveBtn2").addEventListener("click", saveInput);
+document.getElementById("saveBtn3").addEventListener("click", saveInput);
+document.getElementById("saveBtn4").addEventListener("click", saveInput);
+document.getElementById("saveBtn5").addEventListener("click", saveInput);
+document.getElementById("saveBtn6").addEventListener("click", saveInput);
+document.getElementById("saveBtn7").addEventListener("click", saveInput);
+document.getElementById("saveBtn8").addEventListener("click", saveInput);
+document.getElementById("saveBtn9").addEventListener("click", saveInput);
 
 getTime();
