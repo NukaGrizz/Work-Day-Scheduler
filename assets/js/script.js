@@ -17,21 +17,15 @@ var fivePmBlock = document.getElementById('5pm-input');
 
 
 var getTime = function() {
-
     year = dayjs().get('year');
     month = dayjs().get('month');
     date = dayjs().date();
     weekDay = dayjs().day();
     hour = dayjs().get('hour');
-
-    console.log(year);
-    console.log(month);
-    console.log(day);
-    console.log(hour);
-    appendDate();
+    addDate();
 };
 
-var appendDate = function() {
+var addDate = function() {
     var currentDate = document.getElementById('currentDay');
 
     switch (weekDay) {
@@ -98,9 +92,9 @@ var appendDate = function() {
     }
 
     console.log(monthText);
-    console.log(day)
+    console.log(day);
     currentDate.textContent = day + ", " + monthText + " " + date;
-    schedulerHourColor()
+    schedulerHourColor();
 };
 
 var schedulerHourColor = function() {
@@ -272,8 +266,29 @@ var schedulerHourColor = function() {
 };
 
 var saveInput = function(){
-    console.log('saveclick');
+    localStorage.setItem("9am", nineAmBlock.value);
+    localStorage.setItem("10am", tenAmBlock.value);
+    localStorage.setItem("11am", elevenAmBlock.value);
+    localStorage.setItem("12am", twelvePmBlock.value);
+    localStorage.setItem("1pm", onePmBlock.value);
+    localStorage.setItem("2pm", twoPmBlock.value);
+    localStorage.setItem("3pm", threePmBlock.value);
+    localStorage.setItem("4pm", fourPmBlock.value);
+    localStorage.setItem("5pm", fivePmBlock.value);
 };
+
+var loadSaved = function(){
+    nineAmBlock.value = localStorage.getItem("9am");
+    tenAmBlock.value = localStorage.getItem("10am");
+    elevenAmBlock.value = localStorage.getItem("11am");
+    twelvePmBlock.value = localStorage.getItem("12am");
+    onePmBlock.value = localStorage.getItem("1pm");
+    twoPmBlock.value = localStorage.getItem("2pm");
+    threePmBlock.value = localStorage.getItem("3pm");
+    fourPmBlock.value = localStorage.getItem("4pm");
+    fivePmBlock.value = localStorage.getItem("5pm");
+};
+
 
 document.getElementById("saveBtn1").addEventListener("click", saveInput);
 document.getElementById("saveBtn2").addEventListener("click", saveInput);
@@ -285,4 +300,5 @@ document.getElementById("saveBtn7").addEventListener("click", saveInput);
 document.getElementById("saveBtn8").addEventListener("click", saveInput);
 document.getElementById("saveBtn9").addEventListener("click", saveInput);
 
+loadSaved();
 getTime();
