@@ -1,3 +1,4 @@
+//Global variables
 var month = "";
 var date = "";
 var hour = "";
@@ -14,6 +15,7 @@ var threePmBlock = document.getElementById('3pm-input');
 var fourPmBlock = document.getElementById('4pm-input');
 var fivePmBlock = document.getElementById('5pm-input');
 
+//get time from Dayjs
 var getTime = function() {
     month = dayjs().get('month');
     date = dayjs().date();
@@ -22,6 +24,7 @@ var getTime = function() {
     addDate();
 };
 
+//addDate to header
 var addDate = function() {
     var currentDate = document.getElementById('currentDay');
     currentDate.textContent = "";
@@ -92,6 +95,7 @@ var addDate = function() {
     schedulerHourColor();
 };
 
+//set color background for task list elements
 var schedulerHourColor = function() {
     nineAmBlock.classList.remove("present");
     nineAmBlock.classList.remove("past");
@@ -260,6 +264,7 @@ var schedulerHourColor = function() {
     }
 };
 
+//save task list elements text input to localStorage
 var saveInput = function(){
     localStorage.setItem("9am", nineAmBlock.value);
     localStorage.setItem("10am", tenAmBlock.value);
@@ -272,6 +277,7 @@ var saveInput = function(){
     localStorage.setItem("5pm", fivePmBlock.value);
 };
 
+//load task list elements from local storage 
 var loadSaved = function(){
     nineAmBlock.value = localStorage.getItem("9am");
     tenAmBlock.value = localStorage.getItem("10am");
@@ -284,7 +290,7 @@ var loadSaved = function(){
     fivePmBlock.value = localStorage.getItem("5pm");
 };
 
-
+//listen for save button clicks
 document.getElementById("saveBtn1").addEventListener("click", saveInput);
 document.getElementById("saveBtn2").addEventListener("click", saveInput);
 document.getElementById("saveBtn3").addEventListener("click", saveInput);
